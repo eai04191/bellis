@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
-
+import tw from "twin.macro";
 const makeData = (userProfiles) => {
     let data = [];
     userProfiles.forEach((profile) => {
@@ -28,12 +28,21 @@ const msToTime = (duration) => {
     return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
 };
 
+const Table = tw.table`table-auto`;
+const Th = tw.th`border px-4 py-2 select-none`;
+const Td = tw.td`border px-4 py-2`;
+
 export default function UserTable({ userProfiles }) {
     const columns = React.useMemo(
         () => [
             { Header: "username", accessor: "username" },
             { Header: "xp", accessor: "xp", sortType: "basic" },
-            { Header: "40l", accessor: "40l", sortType: "basic" },
+            {
+                Header: "40l",
+                accessor: "40l",
+                sortType: "basic",
+                Cell: (props) => <>{msToTime(props.value)}</>,
+            },
             { Header: "britz", accessor: "britz", sortType: "basic" },
         ],
         []
@@ -63,12 +72,12 @@ export default function UserTable({ userProfiles }) {
     );
 
     return (
-        <table {...getTableProps()}>
+        <Table {...getTableProps()}>
             <thead>
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map((column) => (
-                            <th
+                            <Th
                                 {...column.getHeaderProps(
                                     column.getSortByToggleProps()
                                 )}
@@ -81,7 +90,7 @@ export default function UserTable({ userProfiles }) {
                                             : " 🔼"
                                         : ""}
                                 </span>
-                            </th>
+                            </Th>
                         ))}
                     </tr>
                 ))}
@@ -93,15 +102,15 @@ export default function UserTable({ userProfiles }) {
                         <tr {...row.getRowProps()}>
                             {row.cells.map((cell) => {
                                 return (
-                                    <td {...cell.getCellProps()}>
+                                    <Td {...cell.getCellProps()}>
                                         {cell.render("Cell")}
-                                    </td>
+                                    </Td>
                                 );
                             })}
                         </tr>
                     );
                 })}
             </tbody>
-        </table>
+        </Table>
     );
 }
