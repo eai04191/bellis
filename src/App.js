@@ -42,7 +42,7 @@ class App extends React.Component {
                 {this.state.userProfiles ? (
                     <UserTable userProfiles={this.state.userProfiles} />
                 ) : (
-                    <p>Loading...</p>
+                    <p>fetching data...</p>
                 )}
             </div>
         );
