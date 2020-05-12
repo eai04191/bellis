@@ -29,13 +29,16 @@ const msToTime = (duration) => {
 };
 
 export default function UserTable({ userProfiles }) {
-    const columns = [
-        { Header: "username", accessor: "username" },
-        { Header: "xp", accessor: "xp", sortType: "basic" },
-        { Header: "40l", accessor: "40l", sortType: "basic" },
-        { Header: "britz", accessor: "britz", sortType: "basic" },
-    ];
-    const data = makeData(userProfiles);
+    const columns = React.useMemo(
+        () => [
+            { Header: "username", accessor: "username" },
+            { Header: "xp", accessor: "xp", sortType: "basic" },
+            { Header: "40l", accessor: "40l", sortType: "basic" },
+            { Header: "britz", accessor: "britz", sortType: "basic" },
+        ],
+        []
+    );
+    const data = React.useMemo(() => makeData(userProfiles), [userProfiles]);
 
     const {
         getTableProps,
