@@ -7,6 +7,7 @@ const makeData = (userProfiles) => {
         let dataRow = {};
         dataRow.username = profile.username;
         dataRow.xp = profile.xp;
+        dataRow.tr = profile.league.rating || null;
         dataRow["40l"] =
             profile.records["40l"].record?.endcontext.finalTime || null;
         dataRow.britz = profile.records.blitz.record?.endcontext.score || null;
@@ -37,6 +38,12 @@ export default function UserTable({ userProfiles }) {
         () => [
             { Header: "username", accessor: "username" },
             { Header: "xp", accessor: "xp", sortType: "basic" },
+            {
+                Header: "tr",
+                accessor: "tr",
+                sortType: "basic",
+                Cell: (props) => <>{parseInt(props.value)}</>,
+            },
             {
                 Header: "40l",
                 accessor: "40l",
