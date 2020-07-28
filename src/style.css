@@ -1,0 +1,34 @@
+@import "normalize.css";
+
+@font-face {
+    src: url(../public/fonts/hun2.ttf);
+    font-family: HUN;
+}
+@font-face {
+    src: url(../public/fonts/hun2-cheeky.ttf);
+    font-family: HUN-CHEEKY;
+}
+@font-face {
+    src: url(../public/fonts/pfw.ttf);
+    font-family: PFW;
+}
+@font-face {
+    src: url(../public/fonts/ind.ttf);
+    font-family: IND;
+}
+@font-face {
+    font-family: "C";
+    font-weight: 500;
+    src: url(../public/fonts/cr.ttf);
+}
+@font-face {
+    font-family: "C";
+    font-weight: 900;
+    src: url(../public/fonts/cb.ttf);
+}
+
+body {
+    font-family: HUN;
+    display: grid;
+    place-items: center;
+}

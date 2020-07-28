@@ -1,46 +1,30 @@
 {
     "name": "bellis",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@testing-library/jest-dom": "^5.11.1",
-        "@testing-library/react": "^10.4.7",
-        "@testing-library/user-event": "^12.0.15",
-        "axios": "^0.19.2",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-scripts": "3.4.1",
-        "react-table": "^7.3.2"
-    },
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/eai04191/bellis",
+    "author": "Irie Aoi <eai@mizle.net>",
+    "license": "MIT",
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "start": "parcel src/index.html"
     },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
+    "dependencies": {
         "@emotion/core": "^10.0.28",
         "@emotion/styled": "^10.0.27",
-        "twin.macro": "^1.6.1"
+        "autoprefixer": "^9.8.5",
+        "ky": "^0.23.0",
+        "normalize.css": "^8.0.1",
+        "parcel-bundler": "^1.12.4",
+        "postcss-modules": "^3.2.0",
+        "postcss-normalize": "^9.0.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "regenerator-runtime": "^0.13.7",
+        "time-stamp": "^2.2.0",
+        "typescript": "^3.9.7"
     },
-    "babelMacros": {
-        "twin": {
-            "config": "src/tailwind.config.js"
-        }
+    "devDependencies": {
+        "@types/react": "^16.9.43",
+        "@types/react-dom": "^16.9.8"
     }
 }
