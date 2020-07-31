@@ -4,7 +4,7 @@ const APIHOST = "https://tetrio-api-wrapper.vercel.app/api";
 
 export async function fetchProfile(id: string): Promise<RootObject> {
     console.log("fetch profle...");
-    return await ky(`${APIHOST}/profile?id=${id}`).json();
+    return ky(`${APIHOST}/profile?id=${id}`).json();
 }
 
 interface Badge {
