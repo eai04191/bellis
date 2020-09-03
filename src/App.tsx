@@ -26,7 +26,7 @@ export const App: React.FC = () => {
     }
 
     const appStyle = style({
-        height: "100vh",
+        height: "calc(var(--vh, 1vh) * 100)",
         display: "grid",
         gridTemplateColumns: "1fr",
         gridTemplateRows: "auto 1fr auto",
