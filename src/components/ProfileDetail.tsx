@@ -1,53 +1,71 @@
 import React from "react";
+import { style } from "typestyle";
 import timestamp from "time-stamp";
-import { Global, jsx, css } from "@emotion/core";
-import styled from "@emotion/styled";
 
 import { RootObject } from "../api";
 
-const Panel = styled.div`
-    width: 50em;
-    margin-top: 1rem;
-    padding: 1em;
+const panel = style({
+    width: "50em",
+    marginTop: "1rem",
 
-    background-color: #243e25;
-    border-top: 3px solid #45794f;
-    border-left: 3px solid #3d6242;
-    border-bottom: 3px solid #162419;
-    border-right: 3px solid #1d3220;
-    box-shadow: 0 0 48px #0002;
-    border-radius: 3px;
-    transition: 0.3s opacity, 0.3s transform, 0.3s filter;
-`;
+    backgroundColor: "#243e25",
+    borderTop: "3px solid #45794f",
+    borderLeft: "3px solid #3d6242",
+    borderBottom: "3px solid #162419",
+    borderRight: "3px solid #1d3220",
 
-const Username = styled.h2`
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #a1dba6;
-`;
+    boxShadow: "0 0 48px #0002",
+    borderRadius: "3px",
+    transition: "0.3s opacity, 0.3s transform, 0.3s filter",
+    $nest: {
+        "&:first-of-type": {
+            filter: "brightness(1.2)",
+        },
+    },
+});
 
-const h5 = css`
-    color: #b3f4b6;
-    font-size: 3em;
-    text-shadow: 0 2px #90c397, 0 0 16px #fff4;
-    margin: 0.15em;
-    margin-bottom: 0;
-`;
+const header = style({
+    display: "grid",
+    width: "100%",
+    padding: "1em",
 
-const Rating = styled.h5`
-    ${h5};
-    span {
-        font-size: 0.75em;
-    }
-`;
+    background: "linear-gradient(to bottom, #334534 0, #212f22 100%)",
+    borderBottom: "2px solid #3d6f41",
+});
 
-const Score40l = styled.h5`
-    ${h5};
-    span {
-        font-size: 0.75em;
-    }
-`;
+const username = style({
+    lineHeight: 1,
+    margin: "0",
+    // marginTop: ".5em",
+    fontSize: "2.25em",
+    fontWeight: 900,
+    color: "#a1dba6",
+});
+
+const h5 = {
+    color: "#b3f4b6",
+    fontSize: "3em",
+    fontWeight: 700,
+    textShadow: "0 2px #90c397, 0 0 16px #fff4",
+    margin: "0.15em",
+    marginBottom: 0,
+};
+
+const rating = style(h5, {
+    $nest: {
+        span: {
+            fontSize: "0.75em",
+        },
+    },
+});
+
+const score40l = style(h5, {
+    $nest: {
+        span: {
+            fontSize: "0.75em",
+        },
+    },
+});
 
 function zeroPadding(num: number, len: number) {
     return (Array(len).join("0") + num).slice(-len);
@@ -68,15 +86,24 @@ type Profile = {
 };
 
 export const ProfileDetail: React.FC<Profile> = ({ user }) => {
+    const roundRating = Math.round(user.league.rating);
     return (
         <>
-            <Panel>
-                <Username>{user.username.toUpperCase()}</Username>
-                <Rating title={`${user.league.rating}TR`}>
-                    {Math.floor(user.league.rating)}
-                    <span>TR</span>
-                </Rating>
-                <Score40l>
+            <div className={panel}>
+                <div className={header}>
+                    <div className={username}>
+                        {user.username.toUpperCase()}
+                    </div>
+                </div>
+                {user.league.rating === -1 ? (
+                    <p>no rating achieved.</p>
+                ) : (
+                    <div className={rating} title={`${user.league.rating}TR`}>
+                        {roundRating}
+                        <span>TR</span>
+                    </div>
+                )}
+                <div className={score40l}>
                     {getmmss(user.records["40l"].record.endcontext.finalTime)}
                     <span>
                         .
@@ -84,8 +111,8 @@ export const ProfileDetail: React.FC<Profile> = ({ user }) => {
                             user.records["40l"].record.endcontext.finalTime
                         )}
                     </span>
-                </Score40l>
-            </Panel>
+                </div>
+            </div>
         </>
     );
 };

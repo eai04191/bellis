@@ -9,5 +9,16 @@
     <body>
         <div id="root">Loading...</div>
         <script src="index.tsx"></script>
+        <script>
+            const body = document.querySelector("body");
+            const root = document.querySelector("#root");
+            const image = new Image();
+            const url = `https://source.unsplash.com/collection/12281189/${window.innerWidth}x${window.innerHeight}`;
+            image.addEventListener("load", () => {
+                body.style.backgroundImage = `url("${url}")`;
+                root.style.backgroundColor = "hsl(0deg 0% 0% / 90%)";
+            });
+            image.src = url;
+        </script>
     </body>
 </html>

@@ -29,6 +29,20 @@
 
 body {
     font-family: HUN;
-    display: grid;
-    place-items: center;
+    margin: 0;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#root {
+    background-color: black;
+    transition: background-color 1s;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }

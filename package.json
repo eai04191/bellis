@@ -10,8 +10,6 @@
         "build": "parcel build src/index.html --experimental-scope-hoisting"
     },
     "dependencies": {
-        "@emotion/core": "^10.0.28",
-        "@emotion/styled": "^10.0.27",
         "autoprefixer": "^9.8.5",
         "ky": "^0.23.0",
         "normalize.css": "^8.0.1",
@@ -22,7 +20,8 @@
         "react-dom": "^16.13.1",
         "regenerator-runtime": "^0.13.7",
         "time-stamp": "^2.2.0",
-        "typescript": "^3.9.7"
+        "typescript": "^3.9.7",
+        "typestyle": "^2.1.0"
     },
     "devDependencies": {
         "@types/react": "^16.9.43",
