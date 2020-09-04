@@ -14,7 +14,7 @@
         "ky": "^0.23.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.12.4",
-        "postcss-modules": "^3.2.0",
+        "postcss-modules": "^3.2.2",
         "postcss-normalize": "^9.0.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
