@@ -7,6 +7,12 @@ export async function fetchProfile(id: string): Promise<RootObject> {
     return ky(`${APIHOST}/profile?id=${id}`).json();
 }
 
+export async function fetchShortid(
+    replayId: string
+): Promise<{ shortid: string }> {
+    return ky(`${APIHOST}/shortId?replayId=${replayId}`).json();
+}
+
 interface Badge {
     id: string;
     label: string;

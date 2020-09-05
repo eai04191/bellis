@@ -2,7 +2,7 @@ import React from "react";
 import { style } from "typestyle";
 import timestamp from "time-stamp";
 
-import { RootObject } from "../api";
+import { fetchShortid, RootObject } from "../api";
 
 const panel = style({
     width: "50em",
@@ -114,7 +114,17 @@ export const ProfileDetail: React.FC<Profile> = ({ user }) => {
                             </div>
                         )}
                     </div>
-                    <div className={score40l}>
+                    <a
+                        onClick={async () => {
+                            const replayId =
+                                user.records["40l"].record.replayid;
+                            const shortid = (await fetchShortid(replayId))
+                                .shortid;
+                            window.open(`https://tetr.io/#R:${shortid}`);
+                        }}
+                        className={score40l}
+                        style={{ cursor: "pointer" }}
+                    >
                         {getmmss(
                             user.records["40l"].record.endcontext.finalTime
                         )}
@@ -124,7 +134,7 @@ export const ProfileDetail: React.FC<Profile> = ({ user }) => {
                                 user.records["40l"].record.endcontext.finalTime
                             )}
                         </span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </>
