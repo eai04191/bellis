@@ -42,6 +42,11 @@ const username = style({
     color: "#a1dba6",
 });
 
+const scoreContainer = style({
+    display: "grid",
+    gridTemplateColumns: "50% 50%",
+});
+
 const h5 = {
     color: "#b3f4b6",
     fontSize: "3em",
@@ -95,22 +100,31 @@ export const ProfileDetail: React.FC<Profile> = ({ user }) => {
                         {user.username.toUpperCase()}
                     </div>
                 </div>
-                {user.league.rating === -1 ? (
-                    <p>no rating achieved.</p>
-                ) : (
-                    <div className={rating} title={`${user.league.rating}TR`}>
-                        {roundRating}
-                        <span>TR</span>
+                <div className={scoreContainer}>
+                    <div>
+                        {user.league.rating === -1 ? (
+                            <p>not rated yet.</p>
+                        ) : (
+                            <div
+                                className={rating}
+                                title={`${user.league.rating}TR`}
+                            >
+                                {roundRating}
+                                <span>TR</span>
+                            </div>
+                        )}
                     </div>
-                )}
-                <div className={score40l}>
-                    {getmmss(user.records["40l"].record.endcontext.finalTime)}
-                    <span>
-                        .
-                        {getfff(
+                    <div className={score40l}>
+                        {getmmss(
                             user.records["40l"].record.endcontext.finalTime
                         )}
-                    </span>
+                        <span>
+                            .
+                            {getfff(
+                                user.records["40l"].record.endcontext.finalTime
+                            )}
+                        </span>
+                    </div>
                 </div>
             </div>
         </>
