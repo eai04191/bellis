@@ -39,7 +39,10 @@ export const App: React.FC = () => {
             () => {
                 (async () => {
                     setUsers(
-                        await Promise.all(ids.split(",").map(fetchProfile))
+                        await Promise.all(
+                            // Setにすることで重複するidを削除
+                            [...new Set(ids.split(","))].map(fetchProfile)
+                        )
                     );
                 })();
             },
