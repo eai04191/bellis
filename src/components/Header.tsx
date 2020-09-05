@@ -25,10 +25,22 @@ const title = style({
     lineHeight: 1,
 });
 
+const link = style({
+    color: "unset",
+    textDecoration: "none",
+    $nest: {
+        "&:visited": {
+            color: "unset",
+        },
+    },
+});
+
 export const Header: React.FC = () => {
     return (
         <header className={header}>
-            <h1 className={title}>BELLIS</h1>
+            <a href="/" className={link}>
+                <h1 className={title}>BELLIS</h1>
+            </a>
             {/* <button>Add User</button> */}
         </header>
     );
