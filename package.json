@@ -20,7 +20,7 @@
         "react-dom": "^16.13.1",
         "regenerator-runtime": "^0.13.7",
         "time-stamp": "^2.2.0",
-        "typescript": "^4.0.2",
+        "typescript": "^4.0.3",
         "typestyle": "^2.1.0"
     },
     "devDependencies": {
