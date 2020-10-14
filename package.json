@@ -16,7 +16,7 @@
         "parcel-bundler": "^1.12.4",
         "postcss-modules": "^3.2.0",
         "postcss-normalize": "^9.0.0",
-        "react": "^16.13.1",
+        "react": "^16.14.0",
         "react-dom": "^16.13.1",
         "regenerator-runtime": "^0.13.7",
         "time-stamp": "^2.2.0",
