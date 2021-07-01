@@ -24,7 +24,7 @@
         "typestyle": "^2.1.0"
     },
     "devDependencies": {
-        "@types/react": "^17.0.3",
+        "@types/react": "^17.0.13",
         "@types/react-dom": "^17.0.3"
     },
     "resolutions": {
