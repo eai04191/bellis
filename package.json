@@ -10,7 +10,7 @@
         "build": "parcel build src/index.html --experimental-scope-hoisting"
     },
     "dependencies": {
-        "autoprefixer": "^9.8.5",
+        "autoprefixer": "^9.8.7",
         "ky": "^0.27.0",
         "normalize.css": "^8.0.1",
         "parcel-bundler": "^1.12.5",
